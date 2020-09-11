@@ -14,7 +14,7 @@
   },
   "scripts": {
     "babel_watch": "babel src/App.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "babel_play_watch": "babel src/playground/build_it_visible.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "babel_play_watch": "babel src/playground/counter_example.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "begin": "live-server public",
     "start": "react-scripts start",
     "build": "react-scripts build",
