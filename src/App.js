@@ -1,3 +1,4 @@
+// Next Section 47 
 class IndecisionApp extends React.Component {
     constructor(props) {
         super(props);
@@ -8,6 +9,26 @@ class IndecisionApp extends React.Component {
         this.state = {
             options: props.options
         }
+    }
+    componentDidMount() {
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json);
+            if(options) {
+                this.setState(() => ({ options }));
+            }
+        } catch (e) {
+            // Do nothing
+        }
+    }
+    componentDidUpdate(previousProps, previousState) {
+        if(previousState.options.length !== this.state.options.length) {
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+        }
+    }
+    componentWillUnmount() {
+        console.log('component will unmount');
     }
     
     handleDeleteOptions() {
@@ -59,10 +80,6 @@ class IndecisionApp extends React.Component {
     }
 }
 
-IndecisionApp.defaultProps = {
-    options: []
-};
-
 const Header = (props) => {
     return (
         <div>
@@ -93,6 +110,7 @@ const Options = (props) => {
     return (
         <div>
             <button onClick={props.handleDeleteOptions}>Remove All</button>
+            {props.options.length === 0 && <p>Please add an option to get started.</p>}
             {
                 props.options.map((option) => (
                     <Option 
@@ -137,7 +155,7 @@ class AddOption extends React.Component {
         const option = e.target.elements.option.value.trim();
         const error = this.props.handleAddOptions(option);
         this.setState(() => ({ error }));
-        if(option) {    
+        if(!error) {    
             e.target.elements.option.value = '';
         }
     }
