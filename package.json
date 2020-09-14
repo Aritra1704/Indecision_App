@@ -7,17 +7,22 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "live-server": "^1.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "validator": "8.0.0",
+    "webpack": "3.1.0"
   },
   "scripts": {
     "babel_watch": "babel src/App.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "babel_play_watch": "babel src/playground/counter_example.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "begin": "live-server public",
+    "build_webpack": "webpack --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
