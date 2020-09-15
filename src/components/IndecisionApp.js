@@ -3,10 +3,12 @@ import AddOption from './AddOption';
 import Action from './Action';
 import Header from './Header';
 import Options from './Options';
+import OptionModal from './OptionModal';
 
 export default class IndecisionApp extends React.Component {
     state = {
-        options: []
+        options: [],
+        selectedOption: undefined
     };
 
     // Old Syntax
@@ -25,11 +27,16 @@ export default class IndecisionApp extends React.Component {
         this.setState(() => ({ options: [] }));
     };
 
+    handleClearSelectedOption = () => {
+        this.setState(() => ({ selectedOption: undefined }));
+    };
+
     handlePick = () => {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
-        const options = this.state.options[randomNum];
+        const option = this.state.options[randomNum];
 
-        alert(options);
+        this.setState(() => ({ selectedOption: option }))
+        // alert(options);
     };
 
     handleAddOptions = (option) => {
@@ -87,6 +94,10 @@ export default class IndecisionApp extends React.Component {
                  />
                 <AddOption 
                     handleAddOptions={this.handleAddOptions}
+                />
+                <OptionModal 
+                    selectedOption={this.state.selectedOption}
+                    handleClearSelectedOption={this.handleClearSelectedOption}
                 />
             </div>
         );

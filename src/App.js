@@ -1,9 +1,28 @@
-// Lesson 55
+// Lesson 63
 import React from 'react';
 import ReactDOM from 'react-dom';
 import IndecisionApp from './components/IndecisionApp';
 
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+
+// const Layout = (props) => {
+//     return (
+//         <div>
+//             <p>header</p>
+//             {props.children}
+//             <p>footer</p>
+//         </div>
+//     );
+// }
+
+// const Template = (
+//     <div>
+//         <p>Page title</p>
+//         <p>this is my page</p>
+//     </div>
+// );
+
+// ReactDOM.render(<Layout><p>This is inline</p></Layout>, document.getElementById('app'));
 
 // class OldSynctax {
 //     constructor() {
