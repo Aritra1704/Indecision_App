@@ -9,6 +9,7 @@
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "live-server": "^1.2.1",
@@ -16,9 +17,12 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "validator": "8.0.0",
-    "webpack": "3.1.0"
+    "webpack": "3.1.0",
+    "webpack-dev-server": "2.5.1"
   },
   "scripts": {
+    "webpack": "webpack",
+    "dev-server": "webpack-dev-server",
     "babel_watch": "babel src/App.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "babel_play_watch": "babel src/playground/counter_example.js --out-file=public/scripts/app.js --presets=env,react --watch",
     "begin": "live-server public",
