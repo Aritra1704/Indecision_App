@@ -27,7 +27,6 @@ const Options = (props) => (
                 />
             ))
         }
-        <Option />
     </div>
 );
 
